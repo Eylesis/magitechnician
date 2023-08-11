@@ -1,13 +1,15 @@
 <template>
   <Sidebar />
+  <Content />
 </template>
 
 <script>
 import Sidebar from './components/Sidebar.vue'
+import Content from './components/Content.vue'
 
 export default {
   name: 'App',
-  components: { Sidebar },
+  components: { Sidebar, Content},
   data() {
 
   },
@@ -45,19 +47,17 @@ export default {
     background: none;
   }
 
-  .app {
+  #app {
     display: flex;
 
     main {
       flex: 1 1 0;
       padding: 2rem;
 
-      @media (max-width: 768px) {
+      @media (max-width: 1024px) {
         padding-left: 6rem;
       }
     }
   }
-
-
 
 </style>
