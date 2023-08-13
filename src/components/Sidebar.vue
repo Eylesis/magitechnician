@@ -1,8 +1,8 @@
 <template>
     <aside :class="{ 'is-expanded': showMenu == true }">   
-        <div class="logo">
+        <!-- <div class="logo">
             <img class="img" src="../assets/logo.png" />
-        </div>
+        </div> -->
 
         <div class="menu-toggle-wrap">
             <button class="menu-toggle" @click="toggleMenu">
@@ -12,9 +12,13 @@
 
         <h3 class="header3">Menu</h3>
         <div class="menu">
-            <button class="button">
-                <span class="material-icons">home</span>
-                <span class="text">Home</span>
+            <button class="button" @click="addContainer('ConjurationBasic')">
+                <span class="material-icons">auto_awesome</span>
+                <span class="text">Basic Conjuration</span>
+            </button>
+            <button class="button" @click="addContainer('InventoryBasic')">
+                <span class="material-icons">inventory_2</span>
+                <span class="text">Inventory</span>
             </button>
         </div>
 
@@ -32,6 +36,9 @@
         methods: {
             toggleMenu() {
                 this.showMenu = !this.showMenu
+            },
+            addContainer(containerName) {
+                this.$emit('addContainer', containerName)
             }
         }
         
@@ -43,8 +50,9 @@
         display: flex;
         flex-direction: column;
 
-        background-color: var(--dark);
-        color: var(--light);
+        background-color: var(--primary);
+        color: var(--secondary);
+        border:1px solid var(--secondary);
 
         width: calc(2rem + 32px);
         overflow: hidden;
@@ -127,7 +135,7 @@
                 }
 
                 &:hover {
-                    background-color: var(--dark);
+                    border: 1px solid var(--secondary);
 
                     .material-icons, .text {
                         color: var(--secondary);
@@ -147,9 +155,9 @@
         &.is-expanded {
             width:var(--sidebar-width);
 
-            .menu-toggle-wrap {
+            /* .menu-toggle-wrap {
                 top:-3rem;
-            }
+            } */
 
             .header3, .button .text {
 			    opacity: 1;

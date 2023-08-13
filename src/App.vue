@@ -1,6 +1,6 @@
 <template>
-  <Sidebar />
-  <Content />
+  <Sidebar @addContainer="updateContainers"/>
+  <Content :renderContainers="renderContainers"/>
 </template>
 
 <script>
@@ -11,9 +11,17 @@ export default {
   name: 'App',
   components: { Sidebar, Content},
   data() {
+    return {
+      renderContainers: []
+    }
 
   },
   methods: {
+    updateContainers(containerName) {
+      if ((this.renderContainers.indexOf(containerName) === -1)) {
+          this.renderContainers.push(containerName)
+        }
+    }
   }
 }
 </script>
@@ -37,6 +45,7 @@ export default {
 
   body {
     background-color: var(--primary);
+    color: var(--secondary);
   }
 
   button {
