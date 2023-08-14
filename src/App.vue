@@ -1,29 +1,15 @@
 <template>
-  <Sidebar @addContainer="updateContainers"/>
-  <Content :renderContainers="renderContainers"/>
+  <Sidebar />
+  <Content />
 </template>
 
-<script>
+<script setup>
 import Sidebar from './components/Sidebar.vue'
 import Content from './components/Content.vue'
+import { useContainersStore } from './stores/containers'
 
-export default {
-  name: 'App',
-  components: { Sidebar, Content},
-  data() {
-    return {
-      renderContainers: []
-    }
+const store = useContainersStore();
 
-  },
-  methods: {
-    updateContainers(containerName) {
-      if ((this.renderContainers.indexOf(containerName) === -1)) {
-          this.renderContainers.push(containerName)
-        }
-    }
-  }
-}
 </script>
 
 <style>
@@ -33,6 +19,7 @@ export default {
     --dark: #2e2e2e;
     --light: #7e7e7e;
     --sidebar-width: 300px;
+    user-select:none;
   }
 
   * {

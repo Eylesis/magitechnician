@@ -1,22 +1,22 @@
 <template>
-    <aside :class="{ 'is-expanded': showMenu == true }">   
+    <aside :class="{ 'is-expanded': showMenu }">   
         <!-- <div class="logo">
             <img class="img" src="../assets/logo.png" />
         </div> -->
 
         <div class="menu-toggle-wrap">
-            <button class="menu-toggle" @click="toggleMenu">
+            <button class="menu-toggle" @click="showMenu=!showMenu">
                 <span class="material-icons">menu</span>
             </button>
         </div>
 
         <h3 class="header3">Menu</h3>
         <div class="menu">
-            <button class="button" @click="addContainer('ConjurationBasic')">
+            <button class="button" @click="store.addContainer('ConjurationBasic')">
                 <span class="material-icons">auto_awesome</span>
                 <span class="text">Basic Conjuration</span>
             </button>
-            <button class="button" @click="addContainer('InventoryBasic')">
+            <button class="button" @click="store.addContainer('InventoryBasic')">
                 <span class="material-icons">inventory_2</span>
                 <span class="text">Inventory</span>
             </button>
@@ -25,24 +25,13 @@
     </aside>
 </template>
 
-<script>
-    
-    export default {
-        data() {
-            return {
-                showMenu: false
-            }
-        },
-        methods: {
-            toggleMenu() {
-                this.showMenu = !this.showMenu
-            },
-            addContainer(containerName) {
-                this.$emit('addContainer', containerName)
-            }
-        }
-        
-    }
+<script setup>
+    import { useContainersStore } from '../stores/containers'
+    import { ref} from 'vue'
+
+    const store = useContainersStore()
+    const showMenu = ref(false)
+
 </script>
 
 <style>
@@ -117,6 +106,7 @@
             margin: 0 -1rem;
 
             .button {
+                border: 1px solid transparent;
                 display:flex;
                 align-items: center;
                 text-decoration: none;
@@ -136,14 +126,6 @@
 
                 &:hover {
                     border: 1px solid var(--secondary);
-
-                    .material-icons, .text {
-                        color: var(--secondary);
-                    }
-                }
-                &.router-link-exact-active{
-                    background-color:var(--dark);
-                    border-right: 5px solid var(--secondary);
 
                     .material-icons, .text {
                         color: var(--secondary);

@@ -1,28 +1,22 @@
 <template>
     <main class="content">
         <Header />
-        <div class="containers" @addContainer="updateContainers">
-            <template v-for="container in renderContainers" >
-                <component :is="container"></component>
+        <div class="containers">
+            <template v-for="container in store.renderedContainers" >
+                <component :is="container" :load="log(container)"></component>
             </template>
         </div>
     </main>
 </template>
 
-<script>
+<script setup>
     import Header from './/Header.vue'
-    import ConjurationBasic from './/containers/ConjurationBasic.vue'
-    import InventoryBasic from ".//containers/InventoryBasic.vue"
+    import { useContainersStore } from '../stores/containers'
+    
+    const store = useContainersStore()
 
-    export default {
-        components: { Header, ConjurationBasic, InventoryBasic },
-        props: ['renderContainers'],
-        data () {
-            return {
-                
-            }
-        }
-
+    function log(item) {
+        console.log(item)
     }
 </script>
 
