@@ -12,7 +12,7 @@
 
         <h3 class="header3">Menu</h3>
         <div class="menu">
-            <button class="button" @click="store.addContainer('ConjurationBasic')">
+            <button class="button" @click="store.addContainer('ResourcesPanel')">
                 <span class="material-icons">auto_awesome</span>
                 <span class="text">Basic Conjuration</span>
             </button>

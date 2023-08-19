@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 export const useContainersStore = defineStore("containers", {
     state: () => {
         return {
-            validContainers: ["ConjurationBasic", "InventoryBasic"],
+            validContainers: ["ResourcesPanel", "InventoryBasic"],
             renderedContainers: []
         }
     },
