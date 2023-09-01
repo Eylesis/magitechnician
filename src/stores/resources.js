@@ -21,53 +21,53 @@ export const useResourcesStore = defineStore("resources", {
                 maxVal: 1000
             },           
             aero: {
-                val: 100,
-                maxVal: 100,
+                val: 10,
+                maxVal: 10,
                 color: "#F0F8FF"
             },
             aqua: {
-                val: 100,
-                maxVal: 100,
+                val: 10,
+                maxVal: 10,
                 color: "#87CEFA"
             },
             pyro: {
-                val: 100,
-                maxVal: 100,
+                val: 10,
+                maxVal: 10,
                 color: " #F5510A"
             },
             terra: {
-                val: 100,
-                maxVal: 100,
+                val: 10,
+                maxVal: 10,
                 color: "#996633"
             },
             glimmer: {
-                val: 100,
-                maxVal: 100,
+                val: 0,
+                maxVal: 0,
                 color: "#761CCA"
             },
             shade: {
-                val: 100,
-                maxVal: 100,
+                val: 0,
+                maxVal: 0,
                 color: "#1A062D"
             },
             aether: {
-                val: 100,
-                maxVal: 100,
+                val: 0,
+                maxVal: 0,
                 color: "#FFF8CC"
             },
             actis: {
-                val: 100,
-                maxVal: 100,
+                val: 0,
+                maxVal: 0,
                 color: "#FFE6FF"
             },
             figmus: {
-                val: 100,
-                maxVal: 100,
+                val: 0,
+                maxVal: 0,
                 color: "#CC99FF"
             },
             tempor: {
-                val: 100,
-                maxVal: 100,
+                val: 0,
+                maxVal: 0,
                 color: "#CCFFDD"
             }            
         }

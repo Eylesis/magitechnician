@@ -3,7 +3,9 @@
         <Header />
         <div class="containers">
             <template v-for="container in store.renderedContainers" >
-                <component :is="container" :load="log(container)"></component>
+                <Container :title="store.validContainers[container].title" :container="container">
+                    <component :is="container"></component>
+                </Container>
             </template>
         </div>
     </main>
@@ -11,6 +13,7 @@
 
 <script setup>
     import Header from './/Header.vue'
+    import Container from './/containers/Container.vue'
     import { useContainersStore } from '../stores/containers'
     
     const store = useContainersStore()

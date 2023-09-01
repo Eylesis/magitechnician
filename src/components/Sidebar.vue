@@ -12,14 +12,12 @@
 
         <h3 class="header3">Menu</h3>
         <div class="menu">
-            <button class="button" @click="store.addContainer('ResourcesPanel')">
-                <span class="material-icons">auto_awesome</span>
-                <span class="text">Basic Conjuration</span>
-            </button>
-            <button class="button" @click="store.addContainer('InventoryBasic')">
-                <span class="material-icons">inventory_2</span>
-                <span class="text">Inventory</span>
-            </button>
+            <template v-for="[container,content] in Object.entries(store.validContainers)" >
+                <button class="button" @click="store.addContainer(container)">
+                    <span class="material-icons">{{content.icon }}</span>
+                    <span class="text">{{ content.title }}</span>
+                </button>
+            </template>
         </div>
 
     </aside>
@@ -31,6 +29,10 @@
 
     const store = useContainersStore()
     const showMenu = ref(false)
+
+    function log(item) {
+        console.log(item)
+    }
 
 </script>
 

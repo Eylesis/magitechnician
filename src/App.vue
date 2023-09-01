@@ -56,4 +56,18 @@ const store = useContainersStore();
     }
   }
 
+    /* width */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: var(--primary);
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--secondary);
+  }
 </style>
